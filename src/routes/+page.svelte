@@ -1,6 +1,21 @@
 <script lang="ts">
   import Header from "$lib/Header.svelte";
   import {tasks} from "$lib/stores/tasks"; 
+   import dayjs from "dayjs";
+
+  let title ="";
+ 
+  function addTask(){
+    tasks.update((currentTasks) =>{
+      currentTasks.push({
+        title ,
+        assignedDate: dayjs(),
+        isDone: false
+      });
+      return currentTasks;
+    } );
+    title = "";
+  }
 
   
 </script>
@@ -8,11 +23,12 @@
 <div class="p-16 flex flex-col gap-8">
   <Header />
   <div class="input-group input-group-divider flex justify-between">
-    <input
+    <input 
+    bind:value={title}
       class="flex-1 !bg-white"
       type="search"
       placeholder="ادخل عنوان المهمة"
     />
-    <button class="variant-filled-primary">اضافة</button>
+    <button class="variant-filled-primary" on:click={addTask} >اضافة</button>
   </div>
 </div>
