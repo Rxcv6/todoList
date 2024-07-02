@@ -1,34 +1,66 @@
 <script lang="ts">
   import Header from "$lib/Header.svelte";
-  import {tasks} from "$lib/stores/tasks"; 
-   import dayjs from "dayjs";
-
-  let title ="";
- 
-  function addTask(){
-    tasks.update((currentTasks) =>{
-      currentTasks.push({
-        title ,
-        assignedDate: dayjs(),
-        isDone: false
-      });
-      return currentTasks;
-    } );
-    title = "";
-  }
-
-  
+  import Taskinput from "$lib/Taskinput.svelte";
+  import dayjs from "dayjs";
+  import Menu from "$lib/icons/menu.svelte";
 </script>
 
-<div class="p-16 flex flex-col gap-8">
+<div
+  class="p-2 sm:p-4 pt-6 md:p-8 lg:p-12 xl:p-16 flex flex-col gap-8 max-w-screen-lg justify-center mx-auto"
+>
   <Header />
-  <div class="input-group input-group-divider flex justify-between">
-    <input 
-    bind:value={title}
-      class="flex-1 !bg-white"
-      type="search"
-      placeholder="ادخل عنوان المهمة"
-    />
-    <button class="variant-filled-primary" on:click={addTask} >اضافة</button>
-  </div>
+  <Taskinput />
+  <ol class=" flex flex-col gap-1">
+    <li
+      class="bg-secondary-500 p-2 rounded-2xl flex justify-between items-center"
+    >
+
+      <div class="flex justify-between">
+        <input class="checkbox rounded-lg w-7 h-7 bg-surface-600/60  " type="checkbox" checked />
+        <span class="pr-2">تسجيل </span>
+      </div>
+      <div class="flex gap-1">
+        <button class="btn variant-filled-surface hover:bg-surface-700/75">
+          {dayjs().format()}
+        </button>
+        <button class="btn variant-filled-surface hover:bg-surface-700/75">
+          <Menu />
+        </button>
+      </div>
+    </li>
+     <li
+      class="bg-secondary-500 p-2 rounded-2xl flex justify-between items-center"
+    >
+      <div class="flex justify-between">
+
+        <input class="checkbox rounded-lg w-7 h-7 bg-surface-600/60" type="checkbox" checked />
+        <span class="pr-2">تسجيل </span>
+      </div>
+      <div class="flex gap-1">
+        <button class="btn variant-filled-surface hover:bg-surface-700/75">
+          {dayjs().format()}
+        </button>
+        <button class="btn variant-filled-surface hover:bg-surface-700/75">
+          <Menu />
+        </button>
+      </div>
+    </li>
+     <li
+
+      class="bg-secondary-500 p-2 rounded-2xl flex justify-between items-center"
+    >
+      <div class="flex justify-between">
+        <input class="checkbox rounded-lg w-7 h-7 bg-surface-600/60" type="checkbox" checked />
+        <span class="pr-2">تسجيل </span>
+      </div>
+      <div class="flex gap-1">
+        <button class="btn variant-filled-surface hover:bg-surface-700/75">
+          {dayjs().format()}
+        </button>
+        <button class="btn variant-filled-surface hover:bg-surface-700/75">
+          <Menu />
+        </button>
+      </div>
+    </li>
+  </ol>
 </div>
