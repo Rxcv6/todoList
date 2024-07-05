@@ -9,7 +9,7 @@
     tasks.update((currentTasks) =>{
       currentTasks.push({
         title ,
-        assignedDate: dayjs(),
+        assignedDate: dayjs().format(),
         isDone: false
       });
       return currentTasks;
