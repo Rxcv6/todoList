@@ -1,29 +1,37 @@
   <script lang="ts">
     import {tasks} from "$lib/stores/tasks"; 
    import dayjs from "dayjs";
+  import TaskList from "./TaskList.svelte";
 
 
       let title ="";
+      let dateTime = dayjs().add(1,'hour').format('YYYY-MM-DDTHH:mm')
+
  
   function addTask(){
     tasks.update((currentTasks) =>{
       currentTasks.push({
         title ,
-        assignedDate: dayjs().format(),
+        assignedDate: dateTime,
         isDone: false
       });
-      return currentTasks;
+      return currentTasks.sort((a: Task ,b:Task)=>{
+        return dayjs(a.assignedDate).unix() - dayjs(b.assignedDate).unix();
+      })
     } );
     title = "";
   }
 
   </script>
-  <div class="input-group input-group-divider flex justify-between">
+  <div class="input-group input-group-divider flex justify-between flex-col md:flex-row bg-white">
     <input 
     bind:value={title}
-      class="flex-1 !bg-white"
+      class="flex-1  !bg-white"
       type="search"
       placeholder="ادخل عنوان المهمة"
     />
-    <button class=" variant-filled-primary" on:click={addTask} >اضافة</button>
+    <input bind:value={dateTime} class="input w-fit" title="Input (datetime-local)" type="datetime-local" />
+    <button class=" variant-filled-primary p-2 " on:click={addTask} >
+      <span class="mx-auto">اضافة</span>
+    </button>
   </div>
