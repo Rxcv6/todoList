@@ -46,7 +46,7 @@
       case "مهامك الفائتة":
         return dayjs(task.assignedDate).unix() - dayjs().unix() < 0;
       
-      case "مهام الشهر":
+      case "مهامك خلال شهر":
         return dayjs(task.assignedDate).unix() - dayjs().unix() <= 13*  24 * 60 * 60 && dayjs(task.assignedDate).unix() - dayjs().unix()>0 ;
       case "مهام اليوم":
         return dayjs(task.assignedDate).unix() - dayjs().unix() <= 24 * 60 * 60 && dayjs(task.assignedDate).unix() - dayjs().unix()>0 ;

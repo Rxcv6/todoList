@@ -53,8 +53,8 @@
       <ListBoxItem bind:group={$filter} name="medium" value="مهام اليوم"
         >مهام اليوم</ListBoxItem
       >
-       <ListBoxItem bind:group={$filter} name="medium" value="مهام الشهر"
-        >مهامك  خلال الشهر</ListBoxItem
+       <ListBoxItem bind:group={$filter} name="medium" value="مهامك خلال شهر"
+        >مهامك خلال شهر</ListBoxItem
       >
         
     </ListBox>
