@@ -2,12 +2,10 @@
   import Header from "$lib/Header.svelte";
   import Taskinput from "$lib/Taskinput.svelte";
   import TaskList from "$lib/TaskList.svelte";
-
 </script>
+
 <svelte:head>
-  <title>
-    متتبع المهام
-  </title>
+  <title>متتبع المهام</title>
 </svelte:head>
 
 <div
@@ -15,10 +13,5 @@
 >
   <Header />
   <Taskinput />
-  <TaskList/>
-
-  
-
-					
-  
+  <TaskList />
 </div>

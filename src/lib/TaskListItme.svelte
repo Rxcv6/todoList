@@ -5,7 +5,7 @@
   import { tasks } from "$lib/stores/tasks";
   import type { ModalSettings, PopupSettings } from "@skeletonlabs/skeleton";
   import { getModalStore } from "@skeletonlabs/skeleton";
-  import {  slide } from "svelte/transition";
+  import { slide } from "svelte/transition";
   import { filter } from "$lib/stores/filter";
 
   dayjs.extend(relativeTime);
@@ -37,10 +37,27 @@
     };
     modalStore.trigger(modal);
   }
+
+  function applyFilter(filter: typeof $filter, task: Task): boolean {
+    console.log(dayjs(task.assignedDate).unix() - dayjs().unix());
+
+    switch (filter) {
+      case "مهامك الفائتة":
+        return dayjs(task.assignedDate).unix() - dayjs().unix() < 0;
+      
+      case "مهام الشهر":
+        return dayjs(task.assignedDate).unix() - dayjs().unix() <= 13*  24 * 60 * 60 && dayjs(task.assignedDate).unix() - dayjs().unix()>0 ;
+      case "مهام اليوم":
+        return dayjs(task.assignedDate).unix() - dayjs().unix() <= 24 * 60 * 60 && dayjs(task.assignedDate).unix() - dayjs().unix()>0 ;
+      case "جميع المهام":
+      default:
+        return true;
+    }
+  }
 </script>
 
 {#each $tasks as task}
-  {#if task.isDone == doneTask && $filter == "جميع المهام" && dayjs(task.assignedDate).unix() - dayjs().unix() <= 24 * 60 * 60}
+  {#if task.isDone == doneTask && applyFilter($filter, task)}
     <li
       class="bg-secondary-500 p-2 rounded-2xl flex justify-between items-center"
       transition:slide

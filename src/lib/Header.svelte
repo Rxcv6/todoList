@@ -13,7 +13,6 @@
   dayjs.locale("ar");
   let day = dayjs().format("a") == "ص" ? "صباح" : "مساء";
 
-  let comboboxValue: string = "جميع المهام";
 
   const popupCombobox: PopupSettings = {
     event: "click",
@@ -45,14 +44,19 @@
     </span>
   </button>
 
-  <div class="card w-40 shadow-xl py-2" data-popup="popupCombobox">
-    <ListBox rounded="rounded-none" active="variant-filled-primary">
-      <ListBoxItem bind:group={$filter} name="medium" value="جميع المهام"
+  <div class="card w-40 shadow-xl  py-2" data-popup="popupCombobox">
+    <ListBox  rounded="rounded-none" active="variant-filled-primary">
+      <ListBoxItem   bind:group={$filter} name="medium" value="جميع المهام"
         >جميع المهام</ListBoxItem
       >
+      <ListBoxItem bind:group={$filter} name="medium" value="مهامك الفائتة">  مهامك الفائتة </ListBoxItem>
       <ListBoxItem bind:group={$filter} name="medium" value="مهام اليوم"
         >مهام اليوم</ListBoxItem
       >
+       <ListBoxItem bind:group={$filter} name="medium" value="مهام الشهر"
+        >مهامك  خلال الشهر</ListBoxItem
+      >
+        
     </ListBox>
     <div class="arrow bg-surface-100-800-token" />
   </div>
