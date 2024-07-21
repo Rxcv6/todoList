@@ -59,7 +59,7 @@
 {#each $tasks as task}
   {#if task.isDone == doneTask && applyFilter($filter, task)}
     <li
-      class="bg-secondary-500 p-2 rounded-2xl flex justify-between items-center"
+      class="bg-primary-500/75 text-white p-2 rounded-2xl flex justify-between items-center"
       transition:slide
     >
       <div class="flex justify-between">
@@ -71,11 +71,11 @@
         <span class="pr-2"> {task.title}</span>
       </div>
       <div class="flex gap-1">
-        <button class="btn variant-filled-surface hover:bg-surface-700/75">
+        <button class="btn  bg-blue-400 hover:bg-blue-400/70">
           {dayjs().to(task.assignedDate)}
         </button>
         <button
-          class="btn variant-filled-surface hover:bg-surface-700/75"
+          class="btn bg-blue-400 hover:bg-blue-400/70"
           on:click={() => confirmDelete(task)}><Delete /></button
         >
       </div>

@@ -22,11 +22,11 @@
 </script>
 
 <form
-  class="input-group input-group-divider flex justify-between flex-col md:flex-row bg-white"
+  class="input-group input-group-divider flex justify-between flex-col md:flex-row bg-blue-400/80"
 >
   <input
     bind:value={title}
-    class="flex-1 !bg-white"
+    class="flex-1 "
     type="search"
     placeholder="ادخل عنوان المهمة"
   />
@@ -36,7 +36,7 @@
     title="Input (datetime-local)"
     type="datetime-local"
   />
-  <button  type="submit" disabled={title.trim().length == 0} class=" variant-filled-primary p-2 transition-all {title.trim().length == 0&& 'bg-black transition-all'}" on:click={addTask}>
+  <button  type="submit" disabled={title.trim().length == 0} class=" variant-filled-primary p-2 transition-all {title.trim().length == 0&& 'bg-blue-400/80 transition-all '}" on:click={addTask}>
     <span class="mx-auto">اضافة</span>
   </button>
 </form>

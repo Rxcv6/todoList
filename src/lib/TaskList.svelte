@@ -12,7 +12,7 @@
 </div>
 {:else}
     {#if $tasks.filter((task) => !task.isDone).length > 0}
-    <ol transition:fade class=" flex flex-col gap-1">
+    <ol transition:fade class="  flex flex-col gap-1">
       <h3>المهام المتبقية:</h3>
       <TaskListItme doneTask={false} />
     </ol>

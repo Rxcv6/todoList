@@ -35,7 +35,7 @@
   </div>
 
   <button
-    class="btn variant-filled-secondary w-40 h-fit justify-between"
+    class="btn variant-outline-primary variant-ringed-primary w-40 h-fit justify-between"
     use:popup={popupCombobox}
   >
     <span>{$filter}</span>
@@ -44,12 +44,12 @@
     </span>
   </button>
 
-  <div class="card w-40 shadow-xl  py-2" data-popup="popupCombobox">
-    <ListBox  rounded="rounded-none" active="variant-filled-primary">
-      <ListBoxItem   bind:group={$filter} name="medium" value="جميع المهام"
+  <div class="card w-40 shadow-xl bg-blue-400  py-2" data-popup="popupCombobox">
+    <ListBox   rounded="rounded-none" hover="hover:bg-blue-800/70  text-blue-200"  active="variant-filled-primary">
+      <ListBoxItem  bind:group={$filter} name="medium" value="جميع المهام"
         >جميع المهام</ListBoxItem
       >
-      <ListBoxItem bind:group={$filter} name="medium" value="مهامك الفائتة">  مهامك الفائتة </ListBoxItem>
+      <ListBoxItem  bind:group={$filter} name="medium" value="مهامك الفائتة">  مهامك الفائتة </ListBoxItem>
       <ListBoxItem bind:group={$filter} name="medium" value="مهام اليوم"
         >مهام اليوم</ListBoxItem
       >
