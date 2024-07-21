@@ -24,6 +24,7 @@
 
       buttonTextConfirm: "تأكيد",
       buttonTextCancel: "الغاء",
+      
       response: (r: boolean) => {
         if (r) {
           tasks.update((currentTask) => {
@@ -39,7 +40,7 @@
   }
 
   function applyFilter(filter: typeof $filter, task: Task): boolean {
-    console.log(dayjs(task.assignedDate).unix() - dayjs().unix());
+   
 
     switch (filter) {
       case "مهامك الفائتة":

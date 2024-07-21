@@ -10,7 +10,7 @@
 initializeStores();
 	
 </script>
-<Modal buttonPositive= 'variant-filled-primary' />
+<Modal buttonPositive= 'variant-filled-error' background="bg-blue-400" />
 
 
 
